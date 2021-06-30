@@ -23,11 +23,15 @@ generateBtn.addEventListener("click", function writePassword() {
   if (passwordLength) {
     // alert you have chosed '' characters
     alert("You have chosen " + passwordLength + " characters.");
+    characterType();
   } else {
     alert("You must enter a number between 8 and 128.");
     writePassword();
   }
-  // confirm pw character type (4)
+});
+
+ // confirm pw character type (4)
+function characterType() {
   // include numbers?
   var includeNumbers = confirm("Would you like to include numbers?");    
   // if yes === alert "you have chosen to include numbers in your password."
@@ -69,16 +73,28 @@ generateBtn.addEventListener("click", function writePassword() {
   }
 
   // if one character type confirmed, exit loop
-    // generate password matching criteria
-    // write password to #password textContent
+  // generate password matching criteria
+  // write password to #password textContent
   // else one character type !confirmed
-    // alert "must choose at least one character type"
-    // run prompt loop again === onclick function
-});
+  // alert "must choose at least one character type"
+  // run prompt loop again === characterType function
+  if (includeNumbers === false && includeSpecChar === false && includeUppercase === false && includeLowercase === false) {
+    alert("You must choose at least one character type.");
+    characterType();
+  } else {
+    generatePassword();
+  }
+
+};
+
+// while (includeNumbers === false && includeSpecChar === false && includeUppercase === false && includeLowercase === false) {
+//   alert("You must choose at least one character type.");
+//   characterType();
+// };
 
 var characters = {
   numbers: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'],
-  specialCharacters: ['!', ',', '"', '#', '$', '%', '&', '(', ')', '*', '+', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~', '"',],
+  specChar: ['!', ',', '"', '#', '$', '%', '&', '(', ')', '*', '+', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~', '"',],
   alphaUpperCase: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
   alphaLowerCase: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'],
 };
