@@ -7,17 +7,15 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-
-
-
 // onlick generate password ---->
 generateBtn.addEventListener("click", function writePassword() {
+  //var password = generatePassword();
+  //var passwordText = document.querySelector("#password");
   // prompt pw length?
   var passwordLength = prompt("How many characters would you like your password to have?");
   if (passwordLength) {
@@ -26,17 +24,33 @@ generateBtn.addEventListener("click", function writePassword() {
     characterType();
   } else {
     alert("You must enter a number between 8 and 128.");
-    writePassword();
+    prompt("How many characters would you like your password to have?");
   }
 });
 
- // confirm pw character type (4)
-function characterType() {
+
+// use apend to write password value to passwordText
+
+// use math random for value
+function generatePassword() {
+  var randomPassword = ""
+
+  for (var i = 0; i < passwordLength; i++) {
+  randomPassword = randomPassword + type[Math.floor(Math.random () * type.length)];
+  console.log(randomPassword);
+  }
+};
+
+
+// confirm pw character type (4)
+var characterType = function() {
+  var type = characters;
   // include numbers?
   var includeNumbers = confirm("Would you like to include numbers?");    
   // if yes === alert "you have chosen to include numbers in your password."
   if (includeNumbers) {
     alert("You have chosen to include numbers in your password.");
+    type = characters.numbers;
     // else === alert "you have chosen not to include numbers characters in your password."
   } else {
     alert("You have chosen not to include numbers in your password.");
@@ -47,6 +61,7 @@ function characterType() {
   // if yes === alert "you have chosen to include special characters in your password."
   if (includeSpecChar) {
     alert("You have chosen to include special characters in your password.");
+    type = characters.specChar;
   // else === alert "you have chosen not to include special characters in your password."
   } else {
     alert("You have chosen not to include special characters in your password.");
@@ -57,6 +72,7 @@ function characterType() {
   // if yes === alert "you have chosen to include uppercase letters in your password."
   if (includeUppercase) {
     alert("You have chosen to include uppercase letters in your password.");
+    type = chracters.alphaUpperCase;
   // else === alert "you have chosen not to include uppercase letters in your password."
   } else {
     alert("You have chosen not to include uppercase letters in your password.");
@@ -67,6 +83,7 @@ function characterType() {
   // if yes === alert "you have chosen to include lowercase letters in your password."
   if (includeLowercase) {
     alert("You have chosen to include lowercase letters in your password.");
+    type = characters.alphaLowerCase;
   // else === alert "you have chosen not to include lowercase letters in your password."
   } else {
     alert("You have chosen not to include lowercase letters in your password.");
@@ -84,13 +101,7 @@ function characterType() {
   } else {
     generatePassword();
   }
-
 };
-
-// while (includeNumbers === false && includeSpecChar === false && includeUppercase === false && includeLowercase === false) {
-//   alert("You must choose at least one character type.");
-//   characterType();
-// };
 
 var characters = {
   numbers: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'],
@@ -100,4 +111,11 @@ var characters = {
 };
 console.log(characters);
 
+// var randomPassword = [""]
+
+// if all requirements of character type are met
+  // choose the characters that were confirmed
+    // pull from chracters strings
+        // randomize
+// concat the characters with the character 'type' confirmed in character 'type' vaue
 writePassword();
