@@ -1,15 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
-function writePassword() {
-  //var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
-}
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
@@ -19,32 +10,28 @@ var alphaUpperCase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L'
 var alphaLowerCase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 console.log(numbers, specChar, alphaUpperCase, alphaLowerCase);
 
-
-
-
 // onlick generate password ---->
-generateBtn.addEventListener("click", function writePassword() {
-  //var password = generatePassword();
-  //var passwordText = document.querySelector("#password");
-  // prompt pw length?
+
+// prompt pw length?
+function generatePassword() {
   var passwordLength = prompt("How many characters would you like your password to have?");
-  if (passwordLength) {
-    // alert you have chosed '' characters
-    alert("You have chosen " + passwordLength + " characters.");
-    characterType();
-  } else {
+
+  while(passwordLength <= 7 || passwordLength >= 129) {
     alert("You must enter a number between 8 and 128.");
-    prompt("How many characters would you like your password to have?");
+    passwordLength = prompt("How many characters would you like your password to have?");
   }
 
-  // use apend to write password value to passwordText
+  alert("You have chosen " + passwordLength + " characters.")
 
-  // use math random for value
-  
-});
+  characterType();
+}
+
+
+// use math random for value
 
 // confirm pw character type (4)
 var characterType = function() {
+  //var characters = [];
   // include numbers?
   var includeNumbers = confirm("Would you like to include numbers?");    
   // if yes === alert "you have chosen to include numbers in your password."
@@ -84,29 +71,20 @@ var characterType = function() {
   } else {
     alert("You have chosen not to include lowercase letters in your password.");
   }
-
-  // if one character type confirmed, exit loop
-  // generate password matching criteria
-  // write password to #password textContent
-  // else one character type !confirmed
-  // alert "must choose at least one character type"
-  // run prompt loop again === characterType function
+  // recursive loop to confirm characterType
   if (includeNumbers === false && includeSpecChar === false && includeUppercase === false && includeLowercase === false) {
     alert("You must choose at least one character type.");
     characterType();
-  } 
-  // else {
-  //   //generatePassword();
-  // }
+  }
 };
 
+// Write password to the #password input
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
 
-// while (includeNumbers === false && includeSpecChar === false && includeUppercase === false && includeLowercase === false) {
-//   alert("You must choose at least one character type.");
-//   characterType();
-// };
-
-writePassword();
+  passwordText.value = password;
+}
 
 // if all requirements of character type are met
   // choose the characters that were confirmed
