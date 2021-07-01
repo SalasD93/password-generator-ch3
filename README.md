@@ -1,10 +1,11 @@
 # password-generator-ch3
 This is a random password generator created with JavaScript for a UM Coding Bootcamp Challenge #3
 
-** Description **
+**Description**
 
-For this assignment I had to create a random password generator to specified conditions in the acceptance criteria as follows:
+For this assignment I had to create a random password generator to specified conditions. I had to utilize JavaScript functions, arrays, and loops to make the page function as requested. I also utilized the Dev Tools in the Chrome browser to debug my code as issues manifested.
 
+## ACCEPTANCE CRITERIA:
 
 GIVEN I need a new, secure password
 
@@ -46,7 +47,7 @@ THEN the password is either displayed in an alert or written to the page
 
 ## MOCK-UP:
 
-The following image shows the complete challenge.
+The following image shows the completed challenge.
 
 ![Homework Screenshot 1](https://github.com/SalasD93/password-generator-ch3/blob/main/assets/screenshots/ch3-screenshot-1.png?raw=true)
 
