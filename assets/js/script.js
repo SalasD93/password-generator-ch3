@@ -76,7 +76,7 @@ function characterType() {
     alert("You have chosen to include lowercase letters in your password.");
     //concat characters picked with complimentary array
     characters = characters.concat(alphaLowerCase);
-  // else === alert "you have chosen not to include lowercase letters in your password."
+  // else === alert "you have chosen not to include lowercase letters in your password"
   } else {
     alert("You have chosen not to include lowercase letters in your password.");
   }
