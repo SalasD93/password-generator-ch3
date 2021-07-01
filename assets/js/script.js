@@ -31,12 +31,13 @@ function generatePassword() {
 
 // confirm pw character type (4)
 var characterType = function() {
-  //var characters = [];
+  var characters = [];
   // include numbers?
   var includeNumbers = confirm("Would you like to include numbers?");    
   // if yes === alert "you have chosen to include numbers in your password."
   if (includeNumbers) {
     alert("You have chosen to include numbers in your password.");
+    characters = characters.concat(numbers);
     // else === alert "you have chosen not to include numbers characters in your password."
   } else {
     alert("You have chosen not to include numbers in your password.");
@@ -47,6 +48,7 @@ var characterType = function() {
   // if yes === alert "you have chosen to include special characters in your password."
   if (includeSpecChar) {
     alert("You have chosen to include special characters in your password.");
+    characters = characters.concat(specChar);
   // else === alert "you have chosen not to include special characters in your password."
   } else {
     alert("You have chosen not to include special characters in your password.");
@@ -57,6 +59,7 @@ var characterType = function() {
   // if yes === alert "you have chosen to include uppercase letters in your password."
   if (includeUppercase) {
     alert("You have chosen to include uppercase letters in your password.");
+    characters = characters.concat(alphaUpperCase);
   // else === alert "you have chosen not to include uppercase letters in your password."
   } else {
     alert("You have chosen not to include uppercase letters in your password.");
@@ -67,10 +70,12 @@ var characterType = function() {
   // if yes === alert "you have chosen to include lowercase letters in your password."
   if (includeLowercase) {
     alert("You have chosen to include lowercase letters in your password.");
+    characters = characters.concat(alphaLowerCase);
   // else === alert "you have chosen not to include lowercase letters in your password."
   } else {
     alert("You have chosen not to include lowercase letters in your password.");
   }
+  
   // recursive loop to confirm characterType
   if (includeNumbers === false && includeSpecChar === false && includeUppercase === false && includeLowercase === false) {
     alert("You must choose at least one character type.");
