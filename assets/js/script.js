@@ -8,7 +8,9 @@ var numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
 var specChar = ['!', ',', '"', '#', '$', '%', '&', '(', ')', '*', '+', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~', '"',];
 var alphaUpperCase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 var alphaLowerCase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-console.log(numbers, specChar, alphaUpperCase, alphaLowerCase);
+var characters = [];
+var passwordRandom = "";
+console.log(numbers, specChar, alphaUpperCase, alphaLowerCase, characters, passwordRandom);
 
 // onlick generate password ---->
 
@@ -24,14 +26,21 @@ function generatePassword() {
   alert("You have chosen " + passwordLength + " characters.")
 
   characterType();
-}
+
+  for (i = 0; i < passwordLength; i++) {
+    passwordRandom = passwordRandom + characters[Math.floor(Math.random() * characters.length)];
+  }
+  return passwordRandom;
+  
+}console.log(passwordRandom);
 
 
 // use math random for value
 
 // confirm pw character type (4)
-var characterType = function() {
-  var characters = [];
+
+function characterType() {
+  
   // include numbers?
   var includeNumbers = confirm("Would you like to include numbers?");    
   // if yes === alert "you have chosen to include numbers in your password."
@@ -75,13 +84,13 @@ var characterType = function() {
   } else {
     alert("You have chosen not to include lowercase letters in your password.");
   }
-  
+
   // recursive loop to confirm characterType
   if (includeNumbers === false && includeSpecChar === false && includeUppercase === false && includeLowercase === false) {
     alert("You must choose at least one character type.");
     characterType();
   }
-};
+}; console.log(characterType);
 
 // Write password to the #password input
 function writePassword() {
@@ -89,7 +98,7 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-}
+} console.log(writePassword);
 
 // if all requirements of character type are met
   // choose the characters that were confirmed
