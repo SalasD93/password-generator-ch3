@@ -35,6 +35,8 @@ function generatePassword() {
 
 // fucntion to determine which characters to include
 function characterType() {
+  // reset password field value for next password
+  characters = [];
   // confirm pw character type (4)
   // include numbers?
   var includeNumbers = confirm("Would you like to include numbers?");    
