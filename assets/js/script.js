@@ -1,8 +1,10 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+var copyBtn = document.querySelector("#copy");
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+copyBtn.addEventListener("click", copyPassword);
 
 // arrays to be called
 var numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
@@ -100,4 +102,19 @@ function writePassword() {
   if (writePassword === true) {
     generatePassword();
   }
+}
+
+function copyPassword() {
+  // Get the text field
+  var copyText = document.getElementById("password");
+
+  // Select the text field
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); // For mobile devices
+
+   // Copy the text inside the text field
+  navigator.clipboard.writeText(copyText.value);
+
+  // Alert the copied text
+  alert("Copied the text: " + copyText.value);
 }
