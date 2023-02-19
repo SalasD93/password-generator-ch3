@@ -16,7 +16,7 @@ var characters = [];
 // function to generate password with all requirements are met
 function generatePassword() {
   // prompt pw length?
-  var passwordLength = prompt("How many characters would you like your password to have?");
+  var passwordLength = prompt("How many characters would you like your password to have between 8-128?");
   // add while loop to limit characters to between 8-128
   while(passwordLength <= 7 || passwordLength >= 129) {
     alert("You must enter a number between 8 and 128.");
